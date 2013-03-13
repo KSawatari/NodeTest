@@ -1,0 +1,35 @@
+<html>
+  <title>Socket.IO pulse test</title>
+  <head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io.connect();
+
+      setInterval(function () {
+        socket.emit('pulse', 1);
+      }, 1000);
+
+      socket.on('pulse', function (data) {
+        console.log(data);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Socket.IO pulse test</h1>
+    <p>See debug console</p>
+
+    <h2>A Script on browser.</h2>
+    <pre>
+var socket = io.connect();
+
+setInterval(function () {
+  socket.emit('pulse', 1);
+}, 1000);
+
+socket.on('pulse', function (data) {
+  console.log(data);
+});
+</pre>
+
+  </body>
+</html>

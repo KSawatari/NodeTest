@@ -19,14 +19,14 @@ io.sockets.on('connection', function (socket) {
   // クライアントからのイベント'all'を受信する
 	socket.on('all', function(data) {
 	
-	/**
+	
 	   // 実行時間を追加
-    var data = JSON.parse(data);
+    // var data = JSON.parse(data);
     var d = new Date();
     data.time = d.getFullYear()  + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-    data = JSON.stringify(data);
+    // data = JSON.stringify(data);
     console.log('\033[96m' + data + '\033[39m');
-	**/
+	
 	
     // イベント名'msg'で受信メッセージを
     // 自分を含む全クライアントにブロードキャストする

@@ -1,3 +1,4 @@
+<!--
 <html>
   <title>Socket.IO pulse test</title>
   <head>
@@ -31,5 +32,23 @@ socket.on('pulse', function (data) {
 });
 </pre>
 
+  </body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>simple chat client powered by socket.io</title>
+    <script src="/socket.io/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="./client.js"></script>
+  </head>
+  <body>
+    <input id="user">
+    <input id="css">
+    <input id="text">
+    <div id="typing"></div>
   </body>
 </html>

@@ -2,6 +2,9 @@ var socket = io.connect();
 var timer;
 
 $(document).ready(function() {
+
+	alert('hoge');
+	
   $('#text').keydown(function(event) {
     // エンターキーで発言をサーバに送信する
     if (event.keyCode === 13) {

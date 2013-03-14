@@ -38,7 +38,7 @@ $(document).ready(function() {
   socket.on('msg', function(data) {
     switch (data.action) {
       case 'post': // 発言の描画
-        $('<li></li>').text(data.user + ': ' + data.text)
+        $('<li></li>').text(data.time + ' ' + data.user + '>' + data.text)
                       .attr('style', data.css)
                       .appendTo('body');
         break;

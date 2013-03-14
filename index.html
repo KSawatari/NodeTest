@@ -1,41 +1,3 @@
-<!--
-<html>
-  <title>Socket.IO pulse test</title>
-  <head>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-      var socket = io.connect();
-
-      setInterval(function () {
-        socket.emit('pulse', 1);
-      }, 1000);
-
-      socket.on('pulse', function (data) {
-        console.log(data);
-      });
-    </script>
-  </head>
-  <body>
-    <h1>Socket.IO pulse test</h1>
-    <p>See debug console</p>
-
-    <h2>A Script on browser.</h2>
-    <pre>
-var socket = io.connect();
-
-setInterval(function () {
-  socket.emit('pulse', 1);
-}, 1000);
-
-socket.on('pulse', function (data) {
-  console.log(data);
-});
-</pre>
-
-  </body>
-</html>
--->
-
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -60,7 +22,8 @@ $(document).ready(function() {
         css: $('#css').val(),
         text: $('#text').val()
       });
-
+	  $('text').value = '';
+	  
     // タイピング中というステータスをサーバに送信する
     } else {
       // イベント名'others'でメッセージをサーバに送信する
@@ -70,7 +33,7 @@ $(document).ready(function() {
       });
     }
   });
-
+  
   // サーバからのイベント'msg'を受信する
   socket.on('msg', function(data) {
     switch (data.action) {
@@ -82,12 +45,11 @@ $(document).ready(function() {
       case 'typing': // タイピング中ステータスの描画
         $('#typing').text(data.user + 'さんがタイピング中です...');
         clearTimeout(timer);
-        timer = setTimeout(function() { $('#typing').empty(); }, 3000);
+        timer = setTimeout(function() { $('#typing').empty(); }, 2000);
         break;
     }
   });
 });	
-	
 	</script>
   </head>
   <body>

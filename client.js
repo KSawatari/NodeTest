@@ -6,9 +6,9 @@ $(document).ready(function() {
 	alert('hoge');
 	
   $('#text').keydown(function(event) {
-    // ƒGƒ“ƒ^[ƒL[‚Å”­Œ¾‚ğƒT[ƒo‚É‘—M‚·‚é
+    // ã‚¨ãƒ³ã‚¿ãƒ¼ã‚­ãƒ¼ã§ç™ºè¨€ã‚’ã‚µãƒ¼ãƒã«é€ä¿¡ã™ã‚‹
     if (event.keyCode === 13) {
-      // ƒCƒxƒ“ƒg–¼'all'‚ÅƒƒbƒZ[ƒW‚ğƒT[ƒo‚É‘—M‚·‚é
+      // ã‚¤ãƒ™ãƒ³ãƒˆå'all'ã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’ã‚µãƒ¼ãƒã«é€ä¿¡ã™ã‚‹
       socket.emit('all', {
         action: 'post',
         user: $('#user').val(),
@@ -16,9 +16,9 @@ $(document).ready(function() {
         text: $('#text').val()
       });
 
-    // ƒ^ƒCƒsƒ“ƒO’†‚Æ‚¢‚¤ƒXƒe[ƒ^ƒX‚ğƒT[ƒo‚É‘—M‚·‚é
+    // ã‚¿ã‚¤ãƒ”ãƒ³ã‚°ä¸­ã¨ã„ã†ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’ã‚µãƒ¼ãƒã«é€ä¿¡ã™ã‚‹
     } else {
-      // ƒCƒxƒ“ƒg–¼'others'‚ÅƒƒbƒZ[ƒW‚ğƒT[ƒo‚É‘—M‚·‚é
+      // ã‚¤ãƒ™ãƒ³ãƒˆå'others'ã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’ã‚µãƒ¼ãƒã«é€ä¿¡ã™ã‚‹
       socket.emit('others', {
         action: 'typing',
         user: $('#user').val()
@@ -26,18 +26,18 @@ $(document).ready(function() {
     }
   });
 
-  // ƒT[ƒo‚©‚ç‚ÌƒCƒxƒ“ƒg'msg'‚ğóM‚·‚é
+  // ã‚µãƒ¼ãƒã‹ã‚‰ã®ã‚¤ãƒ™ãƒ³ãƒˆ'msg'ã‚’å—ä¿¡ã™ã‚‹
   socket.on('msg', function(data) {
     switch (data.action) {
-      case 'post': // ”­Œ¾‚Ì•`‰æ
+      case 'post': // ç™ºè¨€ã®æç”»
         $('<li></li>').text(data.user + ': ' + data.text)
                       .attr('style', data.css)
                       .appendTo('body');
         break;
-      case 'typing': // ƒ^ƒCƒsƒ“ƒO’†ƒXƒe[ƒ^ƒX‚Ì•`‰æ
-        $('#typing').text(data.user + '‚³‚ñ‚ªƒ^ƒCƒsƒ“ƒO’†‚Å‚·...');
+      case 'typing': // ã‚¿ã‚¤ãƒ”ãƒ³ã‚°ä¸­ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã®æç”»
+        $('#typing').text(data.user + 'ã•ã‚“ãŒã‚¿ã‚¤ãƒ”ãƒ³ã‚°ä¸­ã§ã™...');
         clearTimeout(timer);
-        timer = setTimeout(function() { $('#typing').empty(); }, 3000);
+        timer = setTimeout(function() { $('#typing').empty(); }, 2000);
         break;
     }
   });

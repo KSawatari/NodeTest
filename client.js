@@ -2,10 +2,8 @@ var socket = io.connect();
 var timer;
 
 $(document).ready(function() {
-
-	alert('hoge');
-	
   $('#text').keydown(function(event) {
+  
     // エンターキーで発言をサーバに送信する
     if (event.keyCode === 13) {
       // イベント名'all'でメッセージをサーバに送信する
@@ -15,7 +13,8 @@ $(document).ready(function() {
         css: $('#css').val(),
         text: $('#text').val()
       });
-
+	  $('#text').val('');
+	  
     // タイピング中というステータスをサーバに送信する
     } else {
       // イベント名'others'でメッセージをサーバに送信する
@@ -25,12 +24,12 @@ $(document).ready(function() {
       });
     }
   });
-
+  
   // サーバからのイベント'msg'を受信する
   socket.on('msg', function(data) {
     switch (data.action) {
       case 'post': // 発言の描画
-        $('<li></li>').text(data.user + ': ' + data.text)
+        $('<li></li>').text(data.time + ' ' + data.user + '>' + data.text)
                       .attr('style', data.css)
                       .appendTo('body');
         break;

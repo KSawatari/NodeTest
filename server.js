@@ -12,7 +12,7 @@ var app = require('http').createServer( function (req, res) {
 		fileName = persedURL.href;
 	}
 	
-    fs.readFile(__dirname + req.url, function (err, data) {
+    fs.readFile(__dirname +  '/index.html', function (err, data) {
         if (err) return res.writeHead(500);
         res.writeHead(200);
         res.end(data);

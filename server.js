@@ -21,12 +21,11 @@ io.sockets.on('connection', function (socket) {
 	
 	
 	   // 実行時間を追加
-    // var data = JSON.parse(data);
-    var d = new Date();
+	var timeStamp = parseInt( new Date() /1000 ) + 32400;
+    var d = new Date( timeStamp * 1000 );
+//    var d = new Date();
     data.time = d.getFullYear()  + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-    // data = JSON.stringify(data);
     console.log('\033[96m' + data + '\033[39m');
-	
 	
     // イベント名'msg'で受信メッセージを
     // 自分を含む全クライアントにブロードキャストする

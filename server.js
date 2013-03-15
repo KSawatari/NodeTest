@@ -6,7 +6,7 @@ var app = require('http').createServer( function (req, res) {
 	// http://nodejs.jp/nodejs.org_ja/api/http.html#http_http_createserver_requestlistener
 	var persedURL = require('url').parse( req.url, true );
 	var fileName;
-	if( persedURL.href == 0 ){
+	if( persedURL.href.length == 0 ){
 		fileName = '/index.html';
 	}else{
 		fileName = persedURL.href;

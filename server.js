@@ -1,10 +1,24 @@
+/** Chatサーバ **/
 var fs = require('fs');
 var app = require('http').createServer( function (req, res) {
+
+	// 参考
+	// http://nodejs.jp/nodejs.org_ja/api/http.html#http_http_createserver_requestlistener
+	var persedURL = require('url').parse( req.url, true );
+    fs.readFile(__dirname + persedURL.href, function (err, data) {
+        if (err) return res.writeHead(500);
+        res.writeHead(200);
+        res.end(data);
+    });
+
+/**
     fs.readFile(__dirname + '/index.html', function (err, data) {
         if (err) return res.writeHead(500);
         res.writeHead(200);
         res.end(data);
     });
+**/	
+	
 });
 
 var io = require('socket.io').listen(app, { log: true });
@@ -45,7 +59,5 @@ io.sockets.on('connection', function (socket) {
 	/** ここまで **/
 
 });
-
 // app.listen(80);
-app.listen(8888);
-
+app.listen(80);

@@ -1,3 +1,4 @@
+console.log('check');
 var fs = require('fs');
 var app = require('http').createServer( function (req, res) {
 

@@ -6,11 +6,13 @@ var app = require('http').createServer( function (req, res) {
 	
 	res.write(req.method + ' ' + req.url);
 	
-	var pathName = 'index.html';
-	if( req.url != '/' || req.url != '' ){
+	var pathName;
+	if( req.url.match(/^\/$/) ){
+		pathName = '/index.html';
+	}else{
 		pathName = req.url;
 	}
-	res.write( __dirname + pathName );
+	res.write( __dirname + ' ' + pathName );
 	res.end();
 	
 	/**

@@ -4,9 +4,10 @@ var app = require('http').createServer( function (req, res) {
 
 	console.log('check');
 
-//	res.write(req.method + ' ' + req.url);
-//	res.end();
+	res.write(req.method + ' ' + req.url);
+	res.end();
 	
+	/**
 	
 //	var persedURL = require('url').parse( req.url, true );
 	var pathName = 'index.html';
@@ -18,6 +19,7 @@ var app = require('http').createServer( function (req, res) {
         res.writeHead(200);
         res.end(data);
     });
+	**/
 
 	
 	// 参考

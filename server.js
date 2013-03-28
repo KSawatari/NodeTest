@@ -10,7 +10,7 @@ var app = require('http').createServer( function (req, res) {
 	
 //	var persedURL = require('url').parse( req.url, true );
 	var pathName = 'index.html';
-	if( req.url != '/' || requrl != '' ){
+	if( req.url != '/' || req.url != '' ){
 		pathName = req.url;
 	}	
     fs.readFile(__dirname + pathName, function (err, data) {

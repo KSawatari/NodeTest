@@ -4,28 +4,25 @@ var app = require('http').createServer( function (req, res) {
 
 	console.log('check');
 	
+	/**
 	res.write(req.method + ' ' + req.url);
-	
 	var pathName = '/index.html';
 	if( req.url.match(/^\/$/) == null ){
 		pathName = req.url;
 	}
 	res.write( __dirname + ' ' + pathName );
 	res.end();
+	**/
 	
-	/**
-	
-//	var persedURL = require('url').parse( req.url, true );
-	var pathName = 'index.html';
-	if( req.url != '/' || req.url != '' ){
+	var pathName = '/index.html';
+	if( req.url.match(/^\/$/) == null ){
 		pathName = req.url;
-	}	
-    fs.readFile(__dirname + pathName, function (err, data) {
+	}
+    fs.readFile( __dirname + pathName, function (err, data) {
         if (err) return res.writeHead(500);
         res.writeHead(200);
         res.end(data);
-    });
-	**/
+    } );
 
 	
 	// 参考

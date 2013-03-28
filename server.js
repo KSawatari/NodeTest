@@ -9,7 +9,11 @@ var app = require('http').createServer( function (req, res) {
 	
 	
 //	var persedURL = require('url').parse( req.url, true );
-    fs.readFile(__dirname + req.url, function (err, data) {
+	var pathName = 'index.html';
+	if( req.url != '/' ){
+		pathName = req.url;
+	}	
+    fs.readFile(__dirname + pathName, function (err, data) {
         if (err) return res.writeHead(500);
         res.writeHead(200);
         res.end(data);

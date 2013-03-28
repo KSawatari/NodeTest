@@ -3,8 +3,14 @@ var fs = require('fs');
 var app = require('http').createServer( function (req, res) {
 
 	console.log('check');
-
+	
 	res.write(req.method + ' ' + req.url);
+	
+	var pathName = 'index.html';
+	if( req.url != '/' || req.url != '' ){
+		pathName = req.url;
+	}
+	res.write( __dirname + pathName );
 	res.end();
 	
 	/**

@@ -6,10 +6,8 @@ var app = require('http').createServer( function (req, res) {
 	
 	res.write(req.method + ' ' + req.url);
 	
-	var pathName;
-	if( req.url.match(/^\/$/) ){
-		pathName = '/index.html';
-	}else{
+	var pathName = '/index.html';
+	if( req.url.match(/^\/$/) == null ){
 		pathName = req.url;
 	}
 	res.write( __dirname + ' ' + pathName );

@@ -4,8 +4,18 @@ var app = require('http').createServer( function (req, res) {
 
 	console.log('check');
 
-	res.write(req.method + ' ' + req.url);
-	res.end();
+//	res.write(req.method + ' ' + req.url);
+//	res.end();
+	
+	
+//	var persedURL = require('url').parse( req.url, true );
+    fs.readFile(__dirname + req.url, function (err, data) {
+        if (err) return res.writeHead(500);
+        res.writeHead(200);
+        res.end(data);
+    });
+
+	
 	// 参考
 	// http://nodejs.jp/nodejs.org_ja/api/http.html#http_http_createserver_requestlistener
 	/**
